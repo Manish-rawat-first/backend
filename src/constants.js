@@ -1,1 +1,1 @@
-export const DB_Name = 'Videotube'
+export const DB_Name = 'sample_mflix';
