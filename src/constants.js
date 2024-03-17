@@ -1,1 +1,1 @@
-export const DB_Name = 'sample_mflix';
+export const DB_Name = 'Data';
