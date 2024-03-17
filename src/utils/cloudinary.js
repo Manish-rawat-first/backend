@@ -1,4 +1,4 @@
-import {UploadStream, v2 as cloudinary} from "cloudinary"
+import {v2 as cloudinary} from "cloudinary"
 import fs from "fs"
 
 
@@ -26,3 +26,4 @@ cloudinary.config({
         return null;
     }
   }
+  export {uploadOnCloudinary}
