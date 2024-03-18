@@ -4,15 +4,14 @@ import { User } from "../models/user.model.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { generateAccessAndRefreshToken } from "./user.controllers.js";
 
-const loginUser = asyncHandler(async (req,res)=>{
+const loginUser = asyncHandler(async function (req, res) {
     //req body -> data
     //user name or email
     //find the user
     //password check
     //access and refresh token
     //send cookie 
-    console.log("Bolo")
-    const {email, username, password} =  req.body
+    const {email, username, password } = req.body;
     console.log(email + " " + username + " " + password);
 
     if (!username || !email) {
