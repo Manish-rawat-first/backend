@@ -49,7 +49,7 @@ const registerUser = asyncHandler(async(req,res)=>{
     console.log(user)
 
     const createdUser = await User.findById(user._id).select(
-        "-refreshToken"
+        "-password -refreshToken"
     )
     if(!createdUser){
         throw new ApiError(500,"Something went wrong while registering the user")
