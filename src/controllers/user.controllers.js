@@ -46,6 +46,7 @@ const registerUser = asyncHandler(async(req,res)=>{
         email,
         username:username.toLowerCase()
     })
+    console.log(user)
 
     const createdUser = await User.findById(user._id).select(
         "-password -refreshToken"
