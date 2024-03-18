@@ -4,7 +4,7 @@ import { User } from "../models/user.model.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { generateAccessAndRefreshToken } from "./user.controllers.js";
 
-const loginUser = asyncHandler(async function (req, res) {
+const loginUser = asyncHandler(async(req,res)=>{
     //req body -> data
     //user name or email
     //find the user
@@ -31,14 +31,14 @@ const loginUser = asyncHandler(async function (req, res) {
     if (!isPasswordValid) {
         throw new ApiError(400, "Invalid User credential");
     }
-
+ 
     const { accessToken, refreshToken } = await generateAccessAndRefreshToken(user._id);
 
     const loggedInUser = await User.findByIdAndUpdate(user._id).select("-password -refreshToken");
 
     const options = {
         httpOnly: true,
-        secure: true
+        secure: false
     };
     return res
         .status(200)

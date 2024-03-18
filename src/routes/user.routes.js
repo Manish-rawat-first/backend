@@ -5,7 +5,7 @@ import { loginUser } from "../controllers/loginUser.js";
 import { upload } from "../middlewares/multer_middleware.js";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
 const router = Router()
-
+ 
 router.route("/register").post(
     upload.fields([
         {
@@ -21,7 +21,7 @@ router.route("/register").post(
     ]),
     registerUser)
 
-router.route("/login").post(loginUser);
+router.route("/login").post(loginUser.bind(this));
 
 //secured routes
 router.route("/logout").post(verifyJWT,  logoutUser)
