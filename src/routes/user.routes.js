@@ -19,9 +19,9 @@ router.route("/register").post(
 
         }
     ]),
-    registerUser)
+    registerUser);
 
-router.route("/login").post(loginUser.bind(this));
+router.route("/login").post(loginUser);
 
 //secured routes
 router.route("/logout").post(verifyJWT,  logoutUser)
