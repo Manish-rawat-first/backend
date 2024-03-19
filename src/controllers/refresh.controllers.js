@@ -1,8 +1,8 @@
 import jwt from "jsonwebtoken";
-import { ApiError } from "../utils/ApiError";
-import { asyncHandler } from "../utils/asyncHandler";
-import { User } from "../models/user.model";
-import { generateAccessAndRefreshToken } from "./user.controllers";
+import { ApiError } from "../utils/ApiError.js";
+import { asyncHandler } from "../utils/asyncHandler.js";
+import { User } from "../models/user.model.js";
+import { generateAccessAndRefreshToken } from "./user.controllers.js";
 import { options } from "../Option/option.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 
