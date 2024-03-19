@@ -7,6 +7,7 @@ import { verifyJWT } from "../middlewares/auth.middleware.js";
 import { refreshToken } from "../controllers/refresh.controllers.js";
 import { changeCurrentPassword } from "../controllers/change.controllers.js";
 import { getCurrent } from "../controllers/getCurrent.controllers.js";
+import {updateAccountDetails } from "../controllers/update.controllers.js";
 const router = Router()
  
 router.route("/register").post(
@@ -35,4 +36,6 @@ router.route('/change-Password').post(changeCurrentPassword)
 
 // get Current User
 router.route('/getCurrent').post(getCurrent)
+
+router.route('/update').post(updateAccountDetails)
 export default router;

@@ -10,7 +10,7 @@ const changeCurrentPassword = asyncHandler(async(req,res)=>{
         throw new ApiError(400,"Password Mismatch")
     }
 
-    const user = await User.findById(req.User?.id)
+    const user = await User.findById(req.User?._id)
 
     const isPasswordCorrect = await user.isPasswordCorrect(oldPassword)
 
