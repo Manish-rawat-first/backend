@@ -15,7 +15,7 @@ const refreshToken = asyncHandler(async(req,res)=>{
     }
     try {
         const decodedToken = jwt.verify(
-            incomingRefreshToken,process.env.process.env.REFRESH_TOKEN_SECRET
+            incomingRefreshToken,process.env.REFRESH_TOKEN_SECRET
         )
     
         const user = await User.findById(decodedToken?._id);
@@ -31,7 +31,7 @@ const refreshToken = asyncHandler(async(req,res)=>{
         
         const {accessToken,newRefreshToken} = await generateAccessAndRefreshToken(user._id);
     
-        return res.status(200).cookie("accessToken",accessToken,options).cookie("refreshToken",newRefreshToken,options).json(new ApiResponse({accessToken,refreshToken},"Access Token Refres"));
+        return res.status(200).cookie("accessToken",accessToken,options).cookie("refreshToken",newRefreshToken,options).json(new ApiResponse({accessToken,refreshToken:newRefreshToken},"Access Token Refreheds"));
         
     } catch (error) {
         throw new ApiError(401,error?.message ||"invalid refresh token")
