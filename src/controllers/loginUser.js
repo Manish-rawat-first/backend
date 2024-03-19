@@ -4,7 +4,7 @@ import { User } from "../models/user.model.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { generateAccessAndRefreshToken } from "./user.controllers.js";
 
-export const loginUser = asyncHandler(async(req,res)=>{
+const loginUser = asyncHandler(async(req,res)=>{
     //req body -> data
     //user name or email
     //find the user
@@ -53,3 +53,4 @@ export const loginUser = asyncHandler(async(req,res)=>{
             )
         );
 });
+export {loginUser}
