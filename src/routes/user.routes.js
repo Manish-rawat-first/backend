@@ -6,6 +6,7 @@ import { upload } from "../middlewares/multer_middleware.js";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
 import { refreshToken } from "../controllers/refresh.controllers.js";
 import { changeCurrentPassword } from "../controllers/change.controllers.js";
+import { getCurrent } from "../controllers/getCurrent.controllers.js";
 const router = Router()
  
 router.route("/register").post(
@@ -31,4 +32,7 @@ router.route("/logout").post(verifyJWT,  logoutUser)
 router.route("/refresh-token").post(refreshToken)
 //change Password
 router.route('/change-Password').post(changeCurrentPassword)
+
+// get Current User
+router.route('/getCurrent').post(getCurrent)
 export default router;
