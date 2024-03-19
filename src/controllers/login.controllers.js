@@ -3,6 +3,7 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 import { User } from "../models/user.model.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { generateAccessAndRefreshToken } from "./user.controllers.js";
+import { trusted } from "mongoose";
 
 const loginUser = asyncHandler(async(req,res)=>{
     //req body -> data
@@ -38,7 +39,7 @@ const loginUser = asyncHandler(async(req,res)=>{
 
     const options = {
         httpOnly: true,
-        secure: false
+        secure: true
     };
     return res
         .status(200)
