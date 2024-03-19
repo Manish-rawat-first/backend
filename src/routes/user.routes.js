@@ -4,6 +4,7 @@ import { logoutUser } from "../controllers/logout.controllers.js";
 import { loginUser } from "../controllers/login.controllers.js";
 import { upload } from "../middlewares/multer_middleware.js";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
+import { refreshToken } from "../controllers/refresh.controllers.js";
 const router = Router()
  
 router.route("/register").post(
@@ -25,4 +26,6 @@ router.route("/login").post(loginUser);
 
 //secured routes
 router.route("/logout").post(verifyJWT,  logoutUser)
+
+router.route("/refresh-token").post(refreshToken)
 export default router;

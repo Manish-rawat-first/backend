@@ -2,7 +2,7 @@ import { ApiError } from "../utils/ApiError.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { User } from "../models/user.model.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
-import { generateAccessAndRefreshToken } from "./user.controllers.js";
+import { options } from "../Option/option.js";
 
 const loginUser = asyncHandler(async (req, res) =>{
     const {email, username, password} = req.body
@@ -35,10 +35,6 @@ const loginUser = asyncHandler(async (req, res) =>{
 
     const loggedInUser = await User.findById(user._id).select("-password -refreshToken")
 
-    const options = {
-        httpOnly: true,
-        secure: true
-    }
 
     return res
     .status(200)
