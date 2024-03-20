@@ -8,6 +8,7 @@ import { refreshToken } from "../controllers/refresh.controllers.js";
 import { changeCurrentPassword } from "../controllers/change.controllers.js";
 import { getCurrent } from "../controllers/getCurrent.controllers.js";
 import {updateAccountDetails } from "../controllers/update.controllers.js";
+import { updateUserAvatar } from "../controllers/updateAvatar.controllers.js";
 const router = Router()
  
 router.route("/register").post(
@@ -38,4 +39,6 @@ router.route('/change-Password').post(changeCurrentPassword)
 router.route('/getCurrent').post(getCurrent)
 
 router.route('/update').post(updateAccountDetails)
+
+router.route('/avatar').post(updateUserAvatar)
 export default router;
