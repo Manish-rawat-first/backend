@@ -43,5 +43,5 @@ router.route('/update').post(updateAccountDetails)
 //avatar update
 router.route('/avatar').post(updateUserAvatar)
 
-router.route('/coverImage').post(updateCoverImage);
+router.route('/coverImage').post(updateCoverImage)
 export default router;
