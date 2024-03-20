@@ -16,7 +16,7 @@ const updateUserAvatar = asyncHandler(async(req,res)=>{
         throw new ApiError(400,"Error While uploading on avatar")
     }
 
-    await User.findByIdAndUpdate(
+    const user = await User.findByIdAndUpdate(
         req.user?._id,
         { $set: {
             avatar:avatar.url
@@ -25,5 +25,7 @@ const updateUserAvatar = asyncHandler(async(req,res)=>{
        ,},
         {new :true}
     ).select("-password")
+
+    return user.status(200,user,"Avatar Image Updated Successfully")
 })
 export {updateUserAvatar}

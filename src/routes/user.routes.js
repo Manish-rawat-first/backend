@@ -9,6 +9,7 @@ import { changeCurrentPassword } from "../controllers/change.controllers.js";
 import { getCurrent } from "../controllers/getCurrent.controllers.js";
 import {updateAccountDetails } from "../controllers/update.controllers.js";
 import { updateUserAvatar } from "../controllers/updateAvatar.controllers.js";
+import { updateCoverImage } from "../controllers/coverImage.controllers.js";
 const router = Router()
  
 router.route("/register").post(
@@ -39,6 +40,8 @@ router.route('/change-Password').post(changeCurrentPassword)
 router.route('/getCurrent').post(getCurrent)
 
 router.route('/update').post(updateAccountDetails)
-
+//avatar update
 router.route('/avatar').post(updateUserAvatar)
+
+router.route('/coverImage').post(updateCoverImage);
 export default router;
